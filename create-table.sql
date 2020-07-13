@@ -1,6 +1,3 @@
--- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
-
 -- CREATE titles table
 CREATE TABLE IF NOT EXISTS "titles" (
     "title_id" VARCHAR(10)   NOT NULL,
@@ -34,7 +31,7 @@ CREATE TABLE IF NOT EXISTS "employees" (
 );
 
 -- Create salaries table
-CREATE TABLE "salaries" (
+CREATE TABLE IF NOT EXISTS "salaries" (
     "emp_no" INT   NOT NULL,
     "salary" NUMERIC(10,2)   NOT NULL,
     CONSTRAINT "pk_salaries" PRIMARY KEY (
@@ -43,7 +40,7 @@ CREATE TABLE "salaries" (
 );
 
 -- Create table to store managers in each department
-CREATE TABLE "dept_manager" (
+CREATE TABLE IF NOT EXISTS "dept_manager" (
     "dept_no" VARCHAR(10)   NOT NULL,
     "emp_no" INT   NOT NULL,
     CONSTRAINT "pk_dept_manager" PRIMARY KEY (
@@ -52,7 +49,7 @@ CREATE TABLE "dept_manager" (
 );
 
 --Create table to store department(s) that an employee is part of
-CREATE TABLE "dept_emp" (
+CREATE TABLE IF NOT EXISTS "dept_emp" (
     "emp_no" INT   NOT NULL,
     "dept_no" VARCHAR(10)   NOT NULL,
     CONSTRAINT "pk_dept_emp" PRIMARY KEY (
